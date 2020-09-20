@@ -42,7 +42,7 @@ npm run start
 The app can now be reached by visiting `http://localhost:4200`. The browser will automatically refresh when the code is updated.
 
 # Tests
-Unit tests can be served and developed by running the following command...
+Unit tests can be executed and developed by running the following command...
 ```
 npm run test
 ```
