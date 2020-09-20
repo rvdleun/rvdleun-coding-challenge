@@ -1,10 +1,10 @@
 export interface IState {
-  app: IAppState,
+  app: IAppState;
 }
 
 export interface IAppState {
   form: ISignupForm;
-  submitResult: SubmitResultEnum,
+  submitResult: SubmitResultEnum;
   isSubmitting: boolean;
   isValid: boolean;
 }

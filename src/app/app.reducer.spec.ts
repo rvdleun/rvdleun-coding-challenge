@@ -1,6 +1,6 @@
-import {IAppState, ISignupForm, SubmitResultEnum} from "./app.interface";
-import {appReducer} from "./app.reducer";
-import {clearForm, setIsSubmitting, setSubmitResult, updateForm} from "./app.actions";
+import {IAppState, ISignupForm, SubmitResultEnum} from './app.interface';
+import {appReducer} from './app.reducer';
+import {clearForm, setIsSubmitting, setSubmitResult, updateForm} from './app.actions';
 
 describe('app > app.reducer.ts', () => {
   let state: IAppState;

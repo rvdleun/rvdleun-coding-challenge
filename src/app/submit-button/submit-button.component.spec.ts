@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SubmitButtonComponent } from './submit-button.component';
-import {IAppState} from "../app.interface";
-import {provideMockStore} from "@ngrx/store/testing";
-import {Store} from "@ngrx/store";
-import {submitData} from "../app.actions";
-import {initialState} from "../app.reducer";
+import {IAppState} from '../app.interface';
+import {provideMockStore} from '@ngrx/store/testing';
+import {Store} from '@ngrx/store';
+import {submitData} from '../app.actions';
+import {initialState} from '../app.reducer';
 
 describe('SubmitButtonComponent', () => {
   let component: SubmitButtonComponent;

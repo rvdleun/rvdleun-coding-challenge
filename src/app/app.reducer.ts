@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
-import {IAppState} from "./app.interface";
-import {clearForm, setIsSubmitting, setSubmitResult, updateForm} from "./app.actions";
+import {IAppState} from './app.interface';
+import {clearForm, setIsSubmitting, setSubmitResult, updateForm} from './app.actions';
 
 export const initialState: IAppState = {
   form: {
@@ -35,6 +35,6 @@ const reducer = createReducer(
   })),
 );
 
-export function appReducer(state, action) {
+export function appReducer(state, action): IAppState {
   return reducer(state, action);
 }

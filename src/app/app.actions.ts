@@ -1,5 +1,5 @@
-import {createAction, props} from "@ngrx/store";
-import {ISignupForm, SubmitResultEnum} from "./app.interface";
+import {createAction, props} from '@ngrx/store';
+import {ISignupForm, SubmitResultEnum} from './app.interface';
 
 export const clearForm = createAction('[Sign-up Form] Clear form');
 

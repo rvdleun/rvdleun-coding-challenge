@@ -1,9 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SignupFormComponent } from './signup-form.component';
-import {ISignupForm, IState} from "../app.interface";
-import {provideMockStore} from "@ngrx/store/testing";
-import {initialState} from "../app.reducer";
+import {ISignupForm, IState} from '../app.interface';
+import {provideMockStore} from '@ngrx/store/testing';
 
 describe('app > signup-form > signup-form.component.ts', () => {
   let component: SignupFormComponent;
@@ -47,10 +46,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.firstName = '';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['firstName'].valid).toBe(false);
+        expect(component.formGroup.controls.firstName.valid).toBe(false);
       });
     });
 
@@ -58,10 +57,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.firstName = 'Test';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as valid', () => {
-        expect(component.formGroup.controls['firstName'].valid).toBe(true);
+        expect(component.formGroup.controls.firstName.valid).toBe(true);
       });
     });
   });
@@ -71,10 +70,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.lastName = '';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['lastName'].valid).toBe(false);
+        expect(component.formGroup.controls.lastName.valid).toBe(false);
       });
     });
 
@@ -82,10 +81,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.lastName = 'Person #1';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as valid', () => {
-        expect(component.formGroup.controls['lastName'].valid).toBe(true);
+        expect(component.formGroup.controls.lastName.valid).toBe(true);
       });
     });
   });
@@ -95,10 +94,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.email = '';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['email'].valid).toBe(false);
+        expect(component.formGroup.controls.email.valid).toBe(false);
       });
     });
 
@@ -106,10 +105,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.email = 'Test';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as valid', () => {
-        expect(component.formGroup.controls['email'].valid).toBe(false);
+        expect(component.formGroup.controls.email.valid).toBe(false);
       });
     });
 
@@ -117,10 +116,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.email = 'test-person@test.com';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as valid', () => {
-        expect(component.formGroup.controls['email'].valid).toBe(true);
+        expect(component.formGroup.controls.email.valid).toBe(true);
       });
     });
   });
@@ -130,10 +129,10 @@ describe('app > signup-form > signup-form.component.ts', () => {
       beforeEach(() => {
         form.password = '';
         component.ngOnInit();
-      })
+      });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(false);
+        expect(component.formGroup.controls.password.valid).toBe(false);
       });
     });
 
@@ -144,7 +143,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(false);
+        expect(component.formGroup.controls.password.valid).toBe(false);
       });
     });
 
@@ -155,7 +154,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(false);
+        expect(component.formGroup.controls.password.valid).toBe(false);
       });
     });
 
@@ -166,7 +165,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(false);
+        expect(component.formGroup.controls.password.valid).toBe(false);
       });
     });
 
@@ -177,7 +176,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
 
       it('should have marked the field as invalid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(false);
+        expect(component.formGroup.controls.password.valid).toBe(false);
       });
     });
 
@@ -188,7 +187,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
 
       it('should have marked the field as valid', () => {
-        expect(component.formGroup.controls['password'].valid).toBe(true);
+        expect(component.formGroup.controls.password.valid).toBe(true);
       });
     });
   });
@@ -210,7 +209,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
 
     describe('and the password contains the first name', () => {
       beforeEach(() => {
-        form.firstName = 'Test'
+        form.firstName = 'Test';
         form.password = '1234test678';
         component.ngOnInit();
       });
@@ -222,7 +221,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
 
     describe('and the password contains the last name', () => {
       beforeEach(() => {
-        form.lastName = 'Person'
+        form.lastName = 'Person';
         form.password = '12peRsON678';
         component.ngOnInit();
       });
@@ -234,8 +233,8 @@ describe('app > signup-form > signup-form.component.ts', () => {
 
     describe('and the password contains the first and last name', () => {
       beforeEach(() => {
-        form.firstName = 'Person'
-        form.lastName = 'Person'
+        form.firstName = 'Person';
+        form.lastName = 'Person';
         form.password = '1test2peRsON678';
         component.ngOnInit();
       });

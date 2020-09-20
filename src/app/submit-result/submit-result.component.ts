@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IState, SubmitResultEnum} from "../app.interface";
-import {Store} from "@ngrx/store";
+import { IState, SubmitResultEnum} from '../app.interface';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-submit-result',

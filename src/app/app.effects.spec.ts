@@ -1,15 +1,15 @@
-import {Observable, of, throwError} from "rxjs";
-import {clearForm, setIsSubmitting, setSubmitResult, submitData} from "./app.actions";
-import {AppEffects} from "./app.effects";
-import {TestBed} from "@angular/core/testing";
-import {Actions} from "@ngrx/effects";
-import {provideMockActions} from "@ngrx/effects/testing";
-import {AppService} from "./app.service";
+import {Observable, of, throwError} from 'rxjs';
+import {clearForm, setIsSubmitting, setSubmitResult, submitData} from './app.actions';
+import {AppEffects} from './app.effects';
+import {TestBed} from '@angular/core/testing';
+import {Actions} from '@ngrx/effects';
+import {provideMockActions} from '@ngrx/effects/testing';
+import {AppService} from './app.service';
 import createSpyObj = jasmine.createSpyObj;
-import {provideMockStore} from "@ngrx/store/testing";
-import {initialState} from "./app.reducer";
-import {skip, take} from "rxjs/operators";
-import {SubmitResultEnum} from "./app.interface";
+import {provideMockStore} from '@ngrx/store/testing';
+import {initialState} from './app.reducer';
+import {skip, take} from 'rxjs/operators';
+import {SubmitResultEnum} from './app.interface';
 
 describe('app > app.effects.ts', () => {
   let actions$: Actions;
@@ -18,7 +18,7 @@ describe('app > app.effects.ts', () => {
   let appServiceMock;
 
   beforeEach(() => {
-    appServiceMock = createSpyObj('AppService', ['submitForm'])
+    appServiceMock = createSpyObj('AppService', ['submitForm']);
 
     TestBed.configureTestingModule({
       providers: [
@@ -57,14 +57,14 @@ describe('app > app.effects.ts', () => {
             .submitForm$
             .pipe(take(1))
             .subscribe(action => {
-              expect(action).toEqual(clearForm())
+              expect(action).toEqual(clearForm());
             });
 
           effects
             .submitForm$
             .pipe(skip(1))
             .subscribe(action => {
-              expect(action).toEqual(setSubmitResult({ submitResult: SubmitResultEnum.SUCCESS }))
+              expect(action).toEqual(setSubmitResult({ submitResult: SubmitResultEnum.SUCCESS }));
             });
         });
       });
@@ -78,7 +78,7 @@ describe('app > app.effects.ts', () => {
           effects
             .submitForm$
             .subscribe(action => {
-              expect(action).toEqual(setSubmitResult({ submitResult: SubmitResultEnum.ERROR }))
+              expect(action).toEqual(setSubmitResult({ submitResult: SubmitResultEnum.ERROR }));
             });
         });
       });

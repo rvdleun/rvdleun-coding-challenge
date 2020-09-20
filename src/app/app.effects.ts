@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {Actions, Effect, ofType} from "@ngrx/effects";
-import {clearForm, setIsSubmitting, setSubmitResult, submitData} from "./app.actions";
-import {catchError, concatMapTo, map, mapTo, mergeMap, mergeMapTo, withLatestFrom} from "rxjs/operators";
-import {AppService} from "./app.service";
-import {Store} from "@ngrx/store";
-import {IState, SubmitResultEnum} from "./app.interface";
-import {of} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Actions, Effect, ofType} from '@ngrx/effects';
+import {clearForm, setIsSubmitting, setSubmitResult, submitData} from './app.actions';
+import {catchError, mapTo, mergeMap, mergeMapTo, withLatestFrom} from 'rxjs/operators';
+import {AppService} from './app.service';
+import {Store} from '@ngrx/store';
+import {IState, SubmitResultEnum} from './app.interface';
+import {of} from 'rxjs';
 
 @Injectable()
 export class AppEffects {

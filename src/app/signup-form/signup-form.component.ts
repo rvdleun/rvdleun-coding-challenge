@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ISignupForm, IState} from "../app.interface";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {IsNotAllLowerCaps, IsNotAllUpperCaps, PasswordDoesNotContainFirstOrLastName} from "./signup-form.validators";
-import {Store} from "@ngrx/store";
-import {updateForm} from "../app.actions";
-import {Observable, Subscription} from "rxjs";
+import {ISignupForm, IState} from '../app.interface';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {IsNotAllLowerCaps, IsNotAllUpperCaps, PasswordDoesNotContainFirstOrLastName} from './signup-form.validators';
+import {Store} from '@ngrx/store';
+import {updateForm} from '../app.actions';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-signup-form',
@@ -54,11 +54,12 @@ export class SignupFormComponent implements OnDestroy, OnInit {
         }, [
           PasswordDoesNotContainFirstOrLastName,
         ]);
-        this.onValueChangeSubscription = this.formGroup.valueChanges.subscribe((form: ISignupForm) => this.onValueChanges(form))
+
+        this.onValueChangeSubscription = this.formGroup.valueChanges.subscribe((newForm: ISignupForm) => this.onValueChanges(newForm));
       });
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     if (this.onValueChangeSubscription) {
       this.onValueChangeSubscription.unsubscribe();
     }
@@ -69,7 +70,7 @@ export class SignupFormComponent implements OnDestroy, OnInit {
     }
   }
 
-  private onValueChanges(form: ISignupForm) {
+  private onValueChanges(form: ISignupForm): void {
     this.store.dispatch(updateForm({ form, isValid: this.formGroup.valid }));
   }
 }

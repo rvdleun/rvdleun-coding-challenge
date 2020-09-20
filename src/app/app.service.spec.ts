@@ -1,8 +1,8 @@
-import {AppService} from "./app.service";
-import {TestBed} from "@angular/core/testing";
-import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {ISignupForm} from "./app.interface";
-import {environment} from "../environments/environment";
+import {AppService} from './app.service';
+import {TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+import {ISignupForm} from './app.interface';
+import {environment} from '../environments/environment';
 
 describe('app > app.service.ts', () => {
   let httpMock: HttpTestingController;
@@ -28,7 +28,7 @@ describe('app > app.service.ts', () => {
       lastName: '2',
       email: '3',
       password: '4',
-    }
+    };
 
     beforeEach(() => {
       service.submitForm(form).subscribe();

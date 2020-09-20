@@ -1,4 +1,4 @@
-import {AbstractControl, FormGroup, ValidatorFn} from "@angular/forms";
+import {AbstractControl, FormGroup, ValidatorFn} from '@angular/forms';
 
 export function IsNotAllLowerCaps(): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} | null => {
@@ -42,7 +42,7 @@ export function PasswordDoesNotContainFirstOrLastName(formGroup: FormGroup): {[k
       return null;
     }
 
-    if(password.toLowerCase().includes(name.toLowerCase())) {
+    if (password.toLowerCase().includes(name.toLowerCase())) {
       isValid = false;
     }
   });
