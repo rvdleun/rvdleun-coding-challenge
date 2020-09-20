@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form *ngIf="formGroup" [formGroup]="formGroup">
   <label
     for="input-first-name"
     class="sr-only"
@@ -83,6 +83,6 @@
       formGroup.controls.password.errors?.isNotAllLowerCaps ||
       formGroup.controls.password.errors?.isNotAllUpperCaps
     ">Should contain lower and uppercase letters</li>
-    <li *ngIf="formGroup.errors?.passwordDoesNotContainFirstOrLastName">Should not contain user’s first or last name</li>
+    <li *ngIf="formGroup.errors?.passwordDoesNotContainFirstOrLastName">Should not contain first or last name</li>
   </ul>
 </form>
