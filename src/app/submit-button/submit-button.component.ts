@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Store} from "@ngrx/store";
 import {IState} from "../app.interface";
-import {setIsSubmitting} from "../app.actions";
+import {setIsSubmitting, submitData} from "../app.actions";
 
 @Component({
   selector: 'app-submit-button',
@@ -17,6 +17,6 @@ export class SubmitButtonComponent {
   ) { }
 
   public onClick() {
-    this.store.dispatch(setIsSubmitting({ isSubmitting: true }));
+    this.store.dispatch(submitData());
   }
 }

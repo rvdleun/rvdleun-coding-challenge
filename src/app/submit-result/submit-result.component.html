@@ -1,0 +1,2 @@
+<p class="result-success" *ngIf="(submitResult | async) === SubmitResultEnum.SUCCESS">User created successfully!</p>
+<p class="result-error" *ngIf="(submitResult | async) === SubmitResultEnum.ERROR">There was an error while submitting the form. Please try again later.</p>

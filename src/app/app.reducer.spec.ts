@@ -1,6 +1,6 @@
-import {IAppState, ISignupForm} from "./app.interface";
+import {IAppState, ISignupForm, SubmitResultEnum} from "./app.interface";
 import {appReducer} from "./app.reducer";
-import {setIsSubmitting, updateForm} from "./app.actions";
+import {clearForm, setIsSubmitting, setSubmitResult, updateForm} from "./app.actions";
 
 describe('app > app.reducer.ts', () => {
   let state: IAppState;
@@ -13,16 +13,25 @@ describe('app > app.reducer.ts', () => {
         email: 'email@email.com',
         password: 'drowssap',
       },
+      submitResult: null,
       isSubmitting: false,
       isValid: false,
     };
   });
 
-  describe('When the isSubmitting is updated', () => {
-    const action = setIsSubmitting({ isSubmitting: true });
+  describe('When clearing the form', () => {
+    const action = clearForm();
 
-    it('should update the state accordingly', () => {
-      expect(appReducer(state, action)).toEqual({ ...state, isSubmitting: true });
+    it('should have cleared all fields in the form', () => {
+      expect(appReducer(state, action)).toEqual({
+        ...state,
+        form: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+        }
+      });
     });
   });
 
@@ -38,6 +47,22 @@ describe('app > app.reducer.ts', () => {
 
     it('should update the state accordingly', () => {
       expect(appReducer(state, action)).toEqual({ ...state, form, isValid });
+    });
+  });
+
+  describe('When the submitResult value is updated', () => {
+    const action = setSubmitResult({ submitResult: SubmitResultEnum.ERROR });
+
+    it('should update store the result and set isSubmitting to false', () => {
+      expect(appReducer(state, action)).toEqual({ ...state, isSubmitting: false, submitResult: SubmitResultEnum.ERROR });
+    });
+  });
+
+  describe('When the isSubmitting value is updated', () => {
+    const action = setIsSubmitting({ isSubmitting: true });
+
+    it('should update the state accordingly', () => {
+      expect(appReducer(state, action)).toEqual({ ...state, isSubmitting: true });
     });
   });
 });

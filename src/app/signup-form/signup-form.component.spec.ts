@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { SignupFormComponent } from './signup-form.component';
 import {ISignupForm, IState} from "../app.interface";
 import {provideMockStore} from "@ngrx/store/testing";
+import {initialState} from "../app.reducer";
 
 describe('app > signup-form > signup-form.component.ts', () => {
   let component: SignupFormComponent;
@@ -18,6 +19,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
     const initialState: IState = {
       app: {
         form,
+        submitResult: null,
         isSubmitting: false,
         isValid: false,
       }

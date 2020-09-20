@@ -4,6 +4,7 @@ export interface IState {
 
 export interface IAppState {
   form: ISignupForm;
+  submitResult: SubmitResultEnum,
   isSubmitting: boolean;
   isValid: boolean;
 }
@@ -13,4 +14,9 @@ export interface ISignupForm {
   lastName: string;
   email: string;
   password: string;
+}
+
+export enum SubmitResultEnum {
+  SUCCESS = 'success',
+  ERROR = 'error',
 }

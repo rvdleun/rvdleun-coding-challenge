@@ -1,0 +1,12 @@
+p {
+  text-align: center;
+  text-decoration: underline;
+
+  &.result-success {
+    color: green;
+  }
+
+  &.result-error {
+    color: red;
+  }
+}
