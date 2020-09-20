@@ -69,7 +69,7 @@ describe('app > app.effects.ts', () => {
         });
       });
 
-      xdescribe('and the result is in error', () => {
+      describe('and the result is in error', () => {
         beforeEach(() => {
           appServiceMock.submitForm.and.returnValue(throwError({ }));
         });

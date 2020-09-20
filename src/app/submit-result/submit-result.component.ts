@@ -8,7 +8,7 @@ import {Store} from '@ngrx/store';
   styleUrls: ['./submit-result.component.scss']
 })
 export class SubmitResultComponent {
-  public submitResult = this.store.select(state => state.app.submitResult);
+  public submitResult$ = this.store.select(state => state.app.submitResult);
   public SubmitResultEnum = SubmitResultEnum;
 
   constructor(

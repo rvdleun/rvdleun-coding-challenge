@@ -19,7 +19,7 @@ export class SignupFormComponent implements OnDestroy, OnInit {
     password: ''
   };
   public formGroup: FormGroup;
-  public isSubmitting = this.store.select(state => state.app.isSubmitting);
+  public isSubmitting$ = this.store.select(state => state.app.isSubmitting);
 
   private onValueChangeSubscription: Subscription;
   private stateSubscription: Subscription;

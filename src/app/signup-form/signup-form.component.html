@@ -1,4 +1,4 @@
-<fieldset [disabled]="isSubmitting | async">
+<fieldset [disabled]="isSubmitting$ | async">
   <form *ngIf="formGroup" [formGroup]="formGroup" disabled="true">
     <label
       for="input-first-name"
