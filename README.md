@@ -37,13 +37,12 @@ npm install
 
 To serve the project locally, run the following command...
 ```
-npm run serve
+npm run start
 ```
-
-The app can now be reached by visiting `http://localhost:4200`.
+The app can now be reached by visiting `http://localhost:4200`. The browser will automatically refresh when the code is updated.
 
 # Tests
-Unit tests can be served and deveoped by running the following command...
+Unit tests can be served and developed by running the following command...
 ```
 npm run test
 ```
@@ -51,7 +50,7 @@ npm run test
 # Linting
 To check the code for any potential linting errors, run...
 ```
-npm run test
+npm run lint
 ```
 
 # Build and Deployment
