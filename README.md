@@ -36,8 +36,30 @@ Unit tests can be served and deveoped by running the following command...
 npm run test
 ```
 
+## Linting
+To check the code for any potential linting errors, run...
+```
+npm run test
+```
+
 ## Build and Deployment
 
+### Docker
+To create and run the Docker image locally, first [download Docker Desktop](https://www.docker.com/get-started).
+
+To build an image, run the following command...
+```
+docker build --tag coding-challenge:1.0 .
+```
+
+And to run the image...
+```
+docker run --publish 80:80 coding-challenge:1.0  
+```
+
+You can now access the project by visiting `http://localhost`.
+
+### Manually
 To build the project, run...
 ```
 npm run build
