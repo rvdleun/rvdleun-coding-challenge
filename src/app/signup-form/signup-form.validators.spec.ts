@@ -1,9 +1,59 @@
 import {FormControl, FormGroup} from "@angular/forms";
-import {PasswordDoesNotContainFirstOrLastName} from "./signup-form.validators";
+import {IsNotAllLowerCaps, IsNotAllUpperCaps, PasswordDoesNotContainFirstOrLastName} from "./signup-form.validators";
 import {ISignupForm} from "../app.interface";
 
 describe('app > signup-form > signup-form.validators.ts', () => {
-  describe('When validating if a string does not contain the first or last name in the form', () => {
+  describe('When validating if the input does not consist of all lower caps', () => {
+    const input = new FormControl('input');
+    const validator = IsNotAllLowerCaps();
+
+    it('should return the right object if the input does contain only lower caps', () => {
+      input.setValue('abcdefg');
+      expect(validator(input)).toEqual({isNotAllLowerCaps: {value: input.value} });
+    });
+
+    it('should return null if the input does contain only upper caps', () => {
+      input.setValue('ABCDEFG');
+      expect(validator(input)).toEqual(null);
+    })
+
+    it('should return null if the input does contain only lower and upper caps', () => {
+      input.setValue('abcDeFG');
+      expect(validator(input)).toEqual(null);
+    })
+
+    it('should return null if the input is empty', () => {
+      input.setValue('');
+      expect(validator(input)).toEqual(null);
+    })
+  });
+
+  describe('When validating if the input does not consist of all upper caps', () => {
+    const input = new FormControl('input');
+    const validator = IsNotAllUpperCaps();
+
+    it('should return the right object if the input does contain only upper caps', () => {
+      input.setValue('ABCDEFG');
+      expect(validator(input)).toEqual({isNotAllUpperCaps: {value: input.value} });
+    });
+
+    it('should return null if the input does contain only lower caps', () => {
+      input.setValue('abcdefg');
+      expect(validator(input)).toEqual(null);
+    })
+
+    it('should return null if the input does contain only lower and upper caps', () => {
+      input.setValue('abcDeFG');
+      expect(validator(input)).toEqual(null);
+    })
+
+    it('should return null if the input is empty', () => {
+      input.setValue('');
+      expect(validator(input)).toEqual(null);
+    })
+  });
+
+  describe('When validating if the password does not contain the first or last name in the form', () => {
     const form: ISignupForm = {
       firstName: 'Test',
       lastName: 'Person',

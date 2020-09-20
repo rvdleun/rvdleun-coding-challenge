@@ -1,4 +1,10 @@
 <form [formGroup]="formGroup">
+  <ul
+    *ngIf="formGroup.controls.firstName.touched"
+    class="errors"
+  >
+    <li *ngIf="formGroup.controls.firstName.errors?.required">This field is required</li>
+  </ul>
   <label
     for="input-first-name"
     class="sr-only"
@@ -14,6 +20,13 @@
     formControlName="firstName"
   />
 
+  <ul
+
+    *ngIf="formGroup.controls.lastName.touched"
+    class="errors"
+  >
+    <li *ngIf="formGroup.controls.lastName.errors?.required">This field is required</li>
+  </ul>
   <input
     type="text"
     id="input-last-name"
@@ -23,6 +36,13 @@
     formControlName="lastName"
   />
 
+  <ul
+    *ngIf="formGroup.controls.email.touched"
+    class="errors"
+  >
+    <li *ngIf="formGroup.controls.email.errors?.required">This field is required</li>
+    <li *ngIf="formGroup.controls.email.errors?.email">Fill in a valid e-mail address</li>
+  </ul>
   <label
     for="input-email"
     class="sr-only"
@@ -37,6 +57,15 @@
     formControlName="email"
   />
 
+  <ul
+    *ngIf="formGroup.controls.password.touched || formGroup.errors?.passwordDoesNotContainFirstOrLastName"
+    class="errors"
+  >
+    <li *ngIf="formGroup.controls.password.errors?.required">This field is required</li>
+    <li *ngIf="formGroup.controls.password.errors?.minlength">Should be a minimum of eight characters</li>
+    <li *ngIf="formGroup.controls.password.errors?.isNotAllLowerCaps || formGroup.controls.password.errors?.isNotAllUpperCaps">Should contain lower and uppercase letters</li>
+    <li *ngIf="formGroup.errors?.passwordDoesNotContainFirstOrLastName">Should not contain user’s first or last name</li>
+  </ul>
   <label
     for="inputPassword"
     class="sr-only"

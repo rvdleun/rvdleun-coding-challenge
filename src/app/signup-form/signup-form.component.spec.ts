@@ -126,43 +126,6 @@ describe('app > signup-form > signup-form.component.ts', () => {
       });
     });
 
-    describe('and it contains the first name', () => {
-      beforeEach(() => {
-        component.form.firstName = 'Test'
-        component.form.password = '1234test678';
-        component.ngOnInit();
-      });
-
-      it('should have marked the field as invalid', () => {
-        expect(component.formGroup.valid).toBe(false);
-      });
-    });
-
-    describe('and it contains the last name', () => {
-      beforeEach(() => {
-        component.form.lastName = 'Person'
-        component.form.password = '12peRsON678';
-        component.ngOnInit();
-      });
-
-      it('should have marked the field as invalid', () => {
-        expect(component.formGroup.valid).toBe(false);
-      });
-    });
-
-    describe('and it contains the first and last name', () => {
-      beforeEach(() => {
-        component.form.firstName = 'Person'
-        component.form.lastName = 'Person'
-        component.form.password = '1test2peRsON678';
-        component.ngOnInit();
-      });
-
-      it('should have marked the field as invalid', () => {
-        expect(component.formGroup.valid).toBe(false);
-      });
-    });
-
     describe('and it is only in lower cases', () => {
       beforeEach(() => {
         component.form.password = 'abcdefghijklmnop';
@@ -204,6 +167,59 @@ describe('app > signup-form > signup-form.component.ts', () => {
 
       it('should have marked the field as valid', () => {
         expect(component.formGroup.controls['password'].valid).toBe(true);
+      });
+    });
+  });
+
+  describe('When validating the entire form', () => {
+    describe('and the whole form has been filled in properly', () => {
+      beforeEach(() => {
+        component.form.firstName = 'Rob';
+        component.form.lastName = 'Pasta';
+        component.form.email = 'rob.pasta@money.it';
+        component.form.password = '23910XMMnal134';
+        component.ngOnInit();
+      });
+
+      it('should have marked the form as valid', () => {
+        expect(component.formGroup.valid).toBe(true);
+      });
+    });
+
+    describe('and the password contains the first name', () => {
+      beforeEach(() => {
+        component.form.firstName = 'Test'
+        component.form.password = '1234test678';
+        component.ngOnInit();
+      });
+
+      it('should have marked the form as invalid', () => {
+        expect(component.formGroup.valid).toBe(false);
+      });
+    });
+
+    describe('and the password contains the last name', () => {
+      beforeEach(() => {
+        component.form.lastName = 'Person'
+        component.form.password = '12peRsON678';
+        component.ngOnInit();
+      });
+
+      it('should have marked the form as invalid', () => {
+        expect(component.formGroup.valid).toBe(false);
+      });
+    });
+
+    describe('and the password contains the first and last name', () => {
+      beforeEach(() => {
+        component.form.firstName = 'Person'
+        component.form.lastName = 'Person'
+        component.form.password = '1test2peRsON678';
+        component.ngOnInit();
+      });
+
+      it('should have marked the form as invalid', () => {
+        expect(component.formGroup.valid).toBe(false);
       });
     });
   });

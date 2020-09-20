@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {ISignupForm} from "../app.interface";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PasswordDoesNotContainFirstOrLastName} from "./signup-form.validators";
+import {IsNotAllLowerCaps, IsNotAllUpperCaps, PasswordDoesNotContainFirstOrLastName} from "./signup-form.validators";
 
 @Component({
   selector: 'app-signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.scss']
+  styleUrls: ['./signup-form.component.scss'],
+  templateUrl: './signup-form.component.html'
 })
 export class SignupFormComponent implements OnInit {
   public form: ISignupForm = {
@@ -32,9 +32,8 @@ export class SignupFormComponent implements OnInit {
       password: new FormControl(this.form.password, [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern(/[a-z]/g),
-        Validators.pattern(/[A-Z]/g),
-        Validators.pattern(/.*[A-z].*/i),
+        IsNotAllLowerCaps(),
+        IsNotAllUpperCaps(),
       ]),
     }, [
       PasswordDoesNotContainFirstOrLastName,
