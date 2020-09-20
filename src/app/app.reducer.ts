@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
 import {IAppState} from "./app.interface";
-import {updateForm} from "./app.actions";
+import {setIsSubmitting, updateForm} from "./app.actions";
 
 export const initialState: IAppState = {
   form: {
@@ -9,16 +9,18 @@ export const initialState: IAppState = {
     email: '',
     password: '',
   },
+  isSubmitting: false,
   isValid: false,
 };
 
 const reducer = createReducer(
   initialState,
+  on(setIsSubmitting, (state, { isSubmitting }) => ({ ...state, isSubmitting })),
   on(updateForm, (state, { form, isValid }) => ({
     ...state,
     form,
     isValid,
-  }))
+  })),
 );
 
 export function appReducer(state, action) {

@@ -1,19 +1,32 @@
 import {IAppState, ISignupForm} from "./app.interface";
 import {appReducer} from "./app.reducer";
-import {updateForm} from "./app.actions";
+import {setIsSubmitting, updateForm} from "./app.actions";
 
 describe('app > app.reducer.ts', () => {
-  describe('When updating the form', () => {
-    const state: IAppState = {
+  let state: IAppState;
+
+  beforeEach(() => {
+    state = {
       form: {
-        firstName: 'firstname',
-        lastName: 'lastname',
-        email: '',
-        password: '12345'
+        firstName: 'Voornaam',
+        lastName: 'Acterhnaam',
+        email: 'email@email.com',
+        password: 'drowssap',
       },
+      isSubmitting: false,
       isValid: false,
     };
+  });
 
+  describe('When the isSubmitting is updated', () => {
+    const action = setIsSubmitting({ isSubmitting: true });
+
+    it('should update the state accordingly', () => {
+      expect(appReducer(state, action)).toEqual({ ...state, isSubmitting: true });
+    });
+  });
+
+  describe('When updating the form', () => {
     const form: ISignupForm = {
       firstName: 'First',
       lastName: 'Name',
@@ -24,7 +37,7 @@ describe('app > app.reducer.ts', () => {
     const action = updateForm({ form, isValid} );
 
     it('should update the state accordingly', () => {
-      expect(appReducer(state, action)).toEqual({ form, isValid });
+      expect(appReducer(state, action)).toEqual({ ...state, form, isValid });
     });
   });
 });

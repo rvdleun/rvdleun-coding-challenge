@@ -19,6 +19,7 @@ export class SignupFormComponent implements OnDestroy, OnInit {
     password: ''
   };
   public formGroup: FormGroup;
+  public isSubmitting = this.store.select(state => state.app.isSubmitting);
 
   private onValueChangeSubscription: Subscription;
   private stateSubscription: Subscription;
@@ -72,4 +73,3 @@ export class SignupFormComponent implements OnDestroy, OnInit {
     this.store.dispatch(updateForm({ form, isValid: this.formGroup.valid }));
   }
 }
-

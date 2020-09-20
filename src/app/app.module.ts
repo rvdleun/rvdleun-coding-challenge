@@ -9,12 +9,14 @@ import { StoreModule } from '@ngrx/store';
 import {appReducer} from "./app.reducer";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { SubmitButtonComponent } from './submit-button/submit-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
     SignupFormComponent,
+    SubmitButtonComponent,
   ],
   imports: [
     BrowserModule,

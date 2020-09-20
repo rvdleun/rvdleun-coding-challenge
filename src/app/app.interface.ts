@@ -4,6 +4,7 @@ export interface IState {
 
 export interface IAppState {
   form: ISignupForm;
+  isSubmitting: boolean;
   isValid: boolean;
 }
 

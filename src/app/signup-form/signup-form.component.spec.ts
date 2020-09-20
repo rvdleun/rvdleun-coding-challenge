@@ -18,6 +18,7 @@ describe('app > signup-form > signup-form.component.ts', () => {
     const initialState: IState = {
       app: {
         form,
+        isSubmitting: false,
         isValid: false,
       }
     };
