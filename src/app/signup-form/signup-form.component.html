@@ -1,0 +1,51 @@
+<form [formGroup]="formGroup">
+  <label
+    for="input-first-name"
+    class="sr-only"
+  >
+    First name
+  </label>
+  <input
+    type="text"
+    id="input-first-name"
+    class="form-control"
+    placeholder="First name"
+    autofocus
+    formControlName="firstName"
+  />
+
+  <input
+    type="text"
+    id="input-last-name"
+    class="form-control"
+    placeholder="Last name"
+    autofocus
+    formControlName="lastName"
+  />
+
+  <label
+    for="input-email"
+    class="sr-only"
+  >
+    Email address
+  </label>
+  <input
+    type="email"
+    id="input-email"
+    class="form-control"
+    placeholder="Email address"
+    formControlName="email"
+  />
+
+  <label
+    for="inputPassword"
+    class="sr-only"
+  >Password</label>
+  <input
+    type="password"
+    id="inputPassword"
+    class="form-control"
+    placeholder="Password"
+    formControlName="password"
+  />
+</form>
